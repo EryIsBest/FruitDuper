@@ -106,7 +106,7 @@ local function showMainUI()
     local Button = Tab:CreateButton({
         Name = "Dupe Fruits",
         Callback = function()
-            local numFruits = tonumber(Input.CurrentValue) or 1  -- Get the value from the input textbox
+            local numFruits = tonumber(Input:Get()) or 1  -- Get the value from the input textbox
             if Toggle.CurrentValue then
                 for i = 1, numFruits do
                     -- Simulate fruit duplication
