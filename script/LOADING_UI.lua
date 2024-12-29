@@ -25,8 +25,14 @@ local function showPasswordWindow()
         PlaceholderText = "Enter the password",
         RemoveTextAfterFocusLost = false, -- Keep the value after losing focus
         Flag = "PasswordInput", -- Unique identifier for saving
-        Callback = function(Text)
-            if Text == Password then
+    })
+
+    -- Create a Button to submit the password
+    local SubmitButton = PasswordTab:CreateButton({
+        Name = "Submit Password",
+        Callback = function()
+            local enteredPassword = PasswordInput:Get()
+            if enteredPassword == Password then
                 -- If the password is correct, proceed with the fruit duplication UI
                 Rayfield:Notify({
                     Title = "Access Granted",
