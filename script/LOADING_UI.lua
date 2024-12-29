@@ -1,49 +1,55 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local Window = Rayfield:CreateWindow({
-    Name = "Rancar Blox Fruits Hub",
-    Icon = 0, -- No icon
-    LoadingTitle = "Blox Fruit Script",
-    LoadingSubtitle = "By Rancar",
-    Theme = "Default",
-    DisableRayfieldPrompts = false,
-    DisableBuildWarnings = false,
-})
+local placeID = game.PlaceId  -- Get the current place ID
 
--- Create a Tab in the Window
-local Tab = Window:CreateTab("Scripts", 4483362458) -- Title, Image
+-- Check if the current place ID matches any of the specified IDs
+if placeID == 7449423635 or placeID == 4442272183 or placeID == 2753915549 then
+    -- Create the Rayfield Window
+    local Window = Rayfield:CreateWindow({
+        Name = "Rancar Hub",
+        Icon = 0,
+        LoadingTitle = "Rancar Hub",
+        LoadingSubtitle = "by Hanan481",
+        Theme = "Default",
+        DisableRayfieldPrompts = false,
+        DisableBuildWarnings = false,
+    })
 
--- Create a Section in the Tab
-local Section = Tab:CreateSection("Available Scripts")
+    -- Create a Tab for Blox Fruits
+    local Tab = Window:CreateTab("Blox Fruits", 4483362458)
 
--- Create a Button for Trade Scam
-local TradeScamButton = Tab:CreateButton({
-    Name = "Trade Scam",
-    Callback = function()
-        -- Show loading UI and execute the script
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Hanan481/rancar-hub/refs/heads/main/script/LOADING_UI.lua', true))()
+    -- Create a Section for the Blox Fruits features
+    local Section = Tab:CreateSection("Blox Fruits Options")
 
-        -- Destroy the UI after executing
-        Rayfield:Destroy()
-    end,
-})
+    -- Create a Button for the Trade Scam feature
+    local TradeButton = Tab:CreateButton({
+        Name = "Trade Scam",
+        Callback = function()
+            -- When clicked, destroy the buttons and execute the script
+            TradeButton:Destroy()
+            DupeButton:Destroy()
+            -- Execute the external script from the URL
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/Hanan481/rancar-hub/refs/heads/main/script/LOADING_UI.lua', true))()
+        end,
+    })
 
--- Create a Button for Dupe Fruits
-local DupeFruitsButton = Tab:CreateButton({
-    Name = "Dupe Fruits",
-    Callback = function()
-        -- Show loading UI and execute the script
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Hanan481/rancar-hub/refs/heads/main/script/LOADING_UI.lua', true))()
-
-        -- Destroy the UI after executing
-        Rayfield:Destroy()
-    end,
-})
-
--- Show a notification when the script starts
-Rayfield:Notify({
-    Title = "Rancar Blox Fruits Hub",
-    Content = "Welcome to the hub! Choose a script to run.",
-    Duration = 5,
-    Image = "rbxassetid://4483342458", -- Optional image, you can replace with a valid image ID or leave it out
-})
+    -- Create a Button for the Dupe Fruits feature
+    local DupeButton = Tab:CreateButton({
+        Name = "Dupe Fruits",
+        Callback = function()
+            -- When clicked, destroy the buttons and execute the script
+            TradeButton:Destroy()
+            DupeButton:Destroy()
+            -- Execute the external script from the URL
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/Hanan481/rancar-hub/refs/heads/main/script/LOADING_UI.lua', true))()
+        end,
+    })
+else
+    -- If the place ID doesn't match, show a message
+    Rayfield:Notify({
+        Title = "Rancar Hub",
+        Content = "This script is only available for specified game places.",
+        Duration = 4,
+        Image = "rbxassetid://4483362458", -- Error icon
+    })
+end
