@@ -1,6 +1,6 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local Password = "savage1444"  -- Password for accessing the UI
+local Password = "123"  -- Password for accessing the UI
 
 -- Create a Password Input Window
 local function showPasswordWindow()
