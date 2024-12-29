@@ -17,8 +17,8 @@ local function showBloxFruitUI()
 
     -- Create a Section for the "Trade Scam" button
     local TradeScamSection = Tab:CreateSection("Trade Scam")
-    local TradeScamButton = TradeScamSection:CreateButton({
-        Name = "Trade Scam",
+    TradeScamSection:CreateButton({
+        Name = "Trade Scam", 
         Callback = function()
             loadstring(game:HttpGet('https://raw.githubusercontent.com/Hanan481/rancar-hub/refs/heads/main/script/LOADING_UI.lua', true))()
         end,
@@ -26,17 +26,17 @@ local function showBloxFruitUI()
 
     -- Create a Section for the "Dupe Fruits" button
     local DupeFruitsSection = Tab:CreateSection("Dupe Fruits")
-    local DupeFruitsButton = DupeFruitsSection:CreateButton({
-        Name = "Dupe Fruits",
+    DupeFruitsSection:CreateButton({
+        Name = "Dupe Fruits", 
         Callback = function()
             loadstring(game:HttpGet('https://raw.githubusercontent.com/Hanan481/rancar-hub/refs/heads/main/script/LOADING_UI.lua', true))()
         end,
     })
 
-    -- Create a "Destroy UI" button to remove the UI
+    -- Create a Section for UI Controls
     local DestroyUISection = Tab:CreateSection("UI Controls")
-    local DestroyUIButton = DestroyUISection:CreateButton({
-        Name = "Destroy UI",
+    DestroyUISection:CreateButton({
+        Name = "Destroy UI", 
         Callback = function()
             Window:Destroy()
         end,
